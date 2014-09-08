@@ -3,6 +3,7 @@
 ## APIVersion: 100008
 ## Author: MalaVrazica
 ## Version: 1.0.0
+## SavedVariables: MVTimerSavedVariables
 
 MVTimer.lua
 MVTimerEvents.lua

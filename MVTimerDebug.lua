@@ -3,7 +3,7 @@
 
 function MVTimer.d(message)
 	if MVTimer.debugEnabled then
-		d(message)
+		d("MVTimer: " .. message)
 	end
 end
 

@@ -3,7 +3,7 @@
 
 --	Addon was loaded
 function MVTimer.OnAddonLoaded(eventCode, addonName)
-	if (MVTimer.name ~= addOnName) then return end
+	--if (MVTimer.name ~= addOnName) then return end
 	
 	--	do initialization
 	MVTimer:HandleInitialize()
