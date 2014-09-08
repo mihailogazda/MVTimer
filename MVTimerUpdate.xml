@@ -1,0 +1,21 @@
+<!----------------------------------------------------------
+	MVTimer update caller
+  ----------------------------------------------------------
+  -->
+<GuiXml>
+    <Controls>
+        <TopLevelControl name="MVTimerControl" mouseEnabled="false">
+			<Dimensions x="1920" y="1080" />
+			<Anchor point="CENTER" />
+            <OnUpdate>
+				MVTimer:Update()
+            </OnUpdate>
+			<OnKeyDown>
+				MVTimer:HandleKeyDown(key)
+			</OnKeyDown>
+			<OnKeyUp>
+				MVTimer:HandleKeyUp(key)
+			</OnKeyUp>
+        </TopLevelControl>
+	</Controls>
+</GuiXml>

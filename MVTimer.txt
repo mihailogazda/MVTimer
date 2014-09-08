@@ -1,0 +1,14 @@
+## Title: MVTimer
+## Buffs timer so you know when they are expiring.
+## APIVersion: 100008
+## Author: MalaVrazica
+## Version: 1.0.0
+
+MVTimer.lua
+MVTimerEvents.lua
+MVTimerDebug.lua
+
+MVTimerUpdate.xml
+MVTimerUI.xml
+
+bindings.xml

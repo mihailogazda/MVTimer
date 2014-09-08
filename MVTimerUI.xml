@@ -1,0 +1,22 @@
+<!----------------------------------------------------------
+	MVTimer UI
+  ----------------------------------------------------------
+  -->
+<GuiXml>
+    <Controls>
+        <TopLevelControl name="MVTimerControlUI" clampedToScreen="true" mouseEnabled="true" movable="true" hidden="false">
+			<Dimensions x="300" y="50" />
+			 <Anchor point="TOPLEFT" relativeTo="GuiRoot" relativePoint="CENTER" offsetX="0" offsetY="0"/>
+			<Controls>
+				<Backdrop name="$(parent)Backdrop" edgeColor="00000000" layer="0" level="1" centerColor="6495ED" alpha="0.6"  hidden="false" >
+					<Dimensions x="300" y="50" />
+					<Anchor point="TOPLEFT"  relativeTo="$(parent)" relativePoint="TOPLEFT"/>
+					<Edge edgeSize="3" />
+				</Backdrop>
+                <Label name="$(parent)Value" font="ZoFontGameLargeBold" color="CFDCBD" wrapMode="ELLIPSIS" verticalAlignment="CENTER" horizontalAlignment="CENTER" text="Eto tako" >                    
+					<Anchor point="TOPLEFT"  relativeTo="$(parent)" relativePoint="TOPLEFT"/>
+                </Label>
+            </Controls>
+        </TopLevelControl>
+	</Controls>
+</GuiXml>
