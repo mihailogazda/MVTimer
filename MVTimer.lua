@@ -35,18 +35,27 @@ function MVTimer:InitializeUIMap()
 	
 	MVTimer.ui[KEY_BUFF_1] = {}
 	MVTimer.ui[KEY_BUFF_1].bar = MVTimerControlUIStatusBar1
+	MVTimer.ui[KEY_BUFF_1].back = MVTimerControlUIStatusBack1	
 	MVTimer.ui[KEY_BUFF_1].text = MVTimerControlUIStatusText1
 	MVTimer.ui[KEY_BUFF_1].state = STATE_DISABLED
+	MVTimer.ui[KEY_BUFF_1].duration = 30
+	MVTimer.ui[KEY_BUFF_1].value = 0.001
 	
 	MVTimer.ui[KEY_BUFF_2] = {}
 	MVTimer.ui[KEY_BUFF_2].bar = MVTimerControlUIStatusBar2
+	MVTimer.ui[KEY_BUFF_2].back = MVTimerControlUIStatusBack2
 	MVTimer.ui[KEY_BUFF_2].text = MVTimerControlUIStatusText2
 	MVTimer.ui[KEY_BUFF_2].state = STATE_DISABLED
+	MVTimer.ui[KEY_BUFF_2].duration = 20
+	MVTimer.ui[KEY_BUFF_2].value = 0.001
 	
 	MVTimer.ui[KEY_BUFF_3] = {}
 	MVTimer.ui[KEY_BUFF_3].bar = MVTimerControlUIStatusBar3
+	MVTimer.ui[KEY_BUFF_3].back = MVTimerControlUIStatusBack3
 	MVTimer.ui[KEY_BUFF_3].text = MVTimerControlUIStatusText3
 	MVTimer.ui[KEY_BUFF_3].state = STATE_DISABLED
+	MVTimer.ui[KEY_BUFF_3].duration = 10
+	MVTimer.ui[KEY_BUFF_3].value = 0.001
 	
 	MVTimer.ui[KEY_TIMER] = {}
 	MVTimer.ui[KEY_TIMER].bar = nil
@@ -64,6 +73,11 @@ function MVTimer:InitializeUIValues()
 	-- Setup default UI text
 	MVTimer.ui[KEY_TIMER].text:SetText(TIMER_PREFIX .. "0s")
 	
+	-- Buffs text
+	for i = KEY_BUFF_1, KEY_BUFF_3, 1 do
+		MVTimer.ui[i].text:SetText("Buff " .. i)
+		MVTimer.ui[i].bar:SetValue(-1)
+	end
 	
 	--	saved variables
 	MVTimer.savedVariables = ZO_SavedVars:New("MVTimerSavedVariables", 1, nil, {})
@@ -107,19 +121,12 @@ function MVTimer.HandleKeyUp(key)
 	--	get object from key ID
 	local object = MVTimer.ui[key]
 	
-	--	 check if already active
-	if object.bar then
-		object.bar:SetValue(100)
-	end
-	
 	--	check timer state
-	if key == KEY_TIMER then
-		if object.state == STATE_DISABLED then
-			object.value = 0
-			object.state = STATE_ENABLED
-		else
-			object.state = STATE_DISABLED
-		end
+	if object.state == STATE_DISABLED then
+		object.value = 0
+		object.state = STATE_ENABLED
+	else
+		object.state = STATE_DISABLED
 	end
 	
 end
@@ -137,6 +144,30 @@ function MVTimer:Update()
 			timer.value = timer.value + delta
 			timer.text:SetText(TIMER_PREFIX .. string.format("%0.2fs", timer.value))
 		end
+	end
+	
+	
+	--- Process buff objects
+	for i = KEY_BUFF_1, KEY_BUFF_3, 1 do
+		local object = MVTimer.ui[i]
+		if object then 
+		
+			if object.state == STATE_ENABLED then
+				
+				--	increase value from calculated perentage
+				object.value = object.value + delta
+				local perentage = (object.value / object.duration) * 100
+				object.bar:SetValue(perentage)
+				
+				-- check for completion
+				if perentage >= 100 then
+					object.state = STATE_DISABLED
+				end
+
+			end
+			
+		end
+		
 	end
 	
 end

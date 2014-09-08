@@ -1,6 +1,6 @@
 <Bindings>
   <Layer name="General">
-    <Category name="MVTimer Settings">
+    <Category name="|cEB609E|MVTimer Settings">
       <Action name="ACTIVATE_POWERUP_1">
         <Down>MVTimer.HandleKeyDown(1)</Down>
 		<Up>MVTimer.HandleKeyUp(1)</Up>

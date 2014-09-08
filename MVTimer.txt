@@ -1,4 +1,4 @@
-## Title: MVTimer
+## Title: MVTimer by |cEB609E|MalaVrazica|
 ## Buffs timer so you know when they are expiring.
 ## APIVersion: 100008
 ## Author: MalaVrazica
