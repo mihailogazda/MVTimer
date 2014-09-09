@@ -10,9 +10,12 @@ MVTimer.initialized = false
 MVTimer.ui = {}
 
 
--- enums
+-- enums and globals
 local KEY_BUFF_1, KEY_BUFF_2, KEY_BUFF_3, KEY_TIMER = 1, 2, 3, 4
 local STATE_DISABLED, STATE_ENABLED = 1, 2
+local ENABLED_ALPHA_BAR, DISABLED_ALPHA_BAR = 1, 0.3
+local ENABLED_ALPHA_BACK, DISABLED_ALPHA_BACK = 0.6, 0.3
+local ENABLED_ALPHA_TEXT, DISABLED_ALPHA_TEXT = 1, 0.5
 
 --	Timer prefix
 local TIMER_PREFIX = "Timer:  " 
@@ -72,11 +75,17 @@ function MVTimer:InitializeUIValues()
 	
 	-- Setup default UI text
 	MVTimer.ui[KEY_TIMER].text:SetText(TIMER_PREFIX .. "0s")
+	MVTimer.ui[KEY_TIMER].text:SetAlpha(DISABLED_ALPHA_TEXT)
 	
-	-- Buffs text
-	for i = KEY_BUFF_1, KEY_BUFF_3, 1 do
-		MVTimer.ui[i].text:SetText("Buff " .. i)
+	-- Buffs text and duration and alpha
+	for i = KEY_BUFF_1, KEY_BUFF_3, 1 do		
+		MVTimer.ui[i].text:SetText(MVTimerSettings[i].text)
+		MVTimer.ui[i].duration = MVTimerSettings[i].duration
+		
 		MVTimer.ui[i].bar:SetValue(-1)
+		MVTimer.ui[i].bar:SetAlpha(DISABLED_ALPHA_BAR)
+		MVTimer.ui[i].back:SetAlpha(DISABLED_ALPHA_BACK)
+		MVTimer.ui[i].text:SetAlpha(DISABLED_ALPHA_TEXT)
 	end
 	
 	--	saved variables
@@ -122,11 +131,22 @@ function MVTimer.HandleKeyUp(key)
 	local object = MVTimer.ui[key]
 	
 	--	check timer state
-	if object.state == STATE_DISABLED then
+	if key == KEY_TIMER then
+		if object.state == STATE_DISABLED then
+			object.value = 0
+			object.state = STATE_ENABLED
+			object.text:SetAlpha(ENABLED_ALPHA_TEXT)
+		else
+			object.state = STATE_DISABLED
+			object.text:SetAlpha(DISABLED_ALPHA_TEXT)
+		end
+	else
+	--	reset buffs state
 		object.value = 0
 		object.state = STATE_ENABLED
-	else
-		object.state = STATE_DISABLED
+		object.text:SetAlpha(ENABLED_ALPHA_TEXT)
+		object.bar:SetAlpha(ENABLED_ALPHA_BAR)
+		object.back:SetAlpha(ENABLED_ALPHA_BACK)
 	end
 	
 end
@@ -156,12 +176,18 @@ function MVTimer:Update()
 				
 				--	increase value from calculated perentage
 				object.value = object.value + delta
-				local perentage = (object.value / object.duration) * 100
-				object.bar:SetValue(perentage)
+				local percentage = (object.value / object.duration) * 100
+				
+				--	our timer is reversed
+				local p2 = 100 - percentage
+				object.bar:SetValue(p2)
 				
 				-- check for completion
-				if perentage >= 100 then
+				if percentage >= 100 then
 					object.state = STATE_DISABLED
+					object.bar:SetAlpha(DISABLED_ALPHA_BAR)
+					object.back:SetAlpha(DISABLED_ALPHA_BACK)
+					object.text:SetAlpha(DISABLED_ALPHA_TEXT)
 				end
 
 			end

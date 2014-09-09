@@ -19,12 +19,12 @@
 			</Controls>
 			
 			<Controls>
-				<Backdrop name="$(parent)StatusBack1" edgeColor="00000000" layer="0" level="1" centerColor="640185" alpha="0.6"  hidden="false" >
+				<Backdrop name="$(parent)StatusBack1" edgeColor="00000000" layer="0" level="1" centerColor="640185" alpha="0.6"  hidden="false">
 					<Dimensions x="250" y="30" />
 					<Anchor point="TOPLEFT"  relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="0" offsetY="32"/>
 					<Edge edgeSize="3" />
 				</Backdrop>
-				<StatusBar name="$(parent)StatusBar1" color="8A2BE2" alpha="1" centerColor="EB609E">
+				<StatusBar name="$(parent)StatusBar1" color="8A2BE2" alpha="1" centerColor="EB609E" barAlignment="REVERSE">
 					<Dimensions x="250" y="30" />
 					<Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="0" offsetY="32"/>
 					<Limits min="0" max="100" />
@@ -40,7 +40,7 @@
 					<Anchor point="TOPLEFT"  relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="0" offsetY="64"/>
 					<Edge edgeSize="3" />
 				</Backdrop>
-				<StatusBar name="$(parent)StatusBar2" color="8A2BE2" alpha="1" centerColor="EB609E">
+				<StatusBar name="$(parent)StatusBar2" color="8A2BE2" alpha="1" centerColor="EB609E" barAlignment="REVERSE">
 					<Dimensions x="250" y="30" />
 					<Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="0" offsetY="64"/>
 					<Limits min="0" max="100" />
@@ -56,7 +56,7 @@
 					<Anchor point="TOPLEFT"  relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="0" offsetY="96"/>
 					<Edge edgeSize="3" />
 				</Backdrop>
-				<StatusBar name="$(parent)StatusBar3" color="8A2BE2" alpha="1" centerColor="EB609E">
+				<StatusBar name="$(parent)StatusBar3" color="8A2BE2" alpha="1" centerColor="EB609E" barAlignment="REVERSE">
 					<Dimensions x="250" y="30" />
 					<Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="0" offsetY="96"/>
 					<Limits min="0" max="100" />

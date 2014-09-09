@@ -5,9 +5,11 @@
 ## Version: 1.0.0
 ## SavedVariables: MVTimerSavedVariables
 
+
 MVTimer.lua
 MVTimerEvents.lua
 MVTimerDebug.lua
+MVTimerSettings.lua
 
 MVTimerUpdate.xml
 MVTimerUI.xml
