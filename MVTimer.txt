@@ -1,10 +1,9 @@
-## Title: MVTimer by |cEB609E|MalaVrazica|
+## Title: MVTimer for |cEB609E|MalaVrazica|
 ## Buffs timer so you know when they are expiring.
 ## APIVersion: 100008
-## Author: MalaVrazica
+## Author: MihailoGazda
 ## Version: 1.0.0
 ## SavedVariables: MVTimerSavedVariables
-
 
 MVTimer.lua
 MVTimerEvents.lua
