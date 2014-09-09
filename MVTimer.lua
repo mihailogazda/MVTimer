@@ -5,7 +5,7 @@
 MVTimer = {}
 MVTimer.name = "MVTimer"
 MVTimer.player = "Player"
-MVTimer.debugEnabled = true
+MVTimer.debugEnabled = false
 MVTimer.initialized = false
 MVTimer.ui = {}
 
