@@ -2,13 +2,12 @@
 ## Buffs timer so you know when they are expiring.
 ## APIVersion: 100008
 ## Author: MihailoGazda
-## Version: 1.0.0
+## Version: 1.1.0
 ## SavedVariables: MVTimerSavedVariables
 
 MVTimer.lua
 MVTimerEvents.lua
 MVTimerDebug.lua
-MVTimerSettings.lua
 
 MVTimerUpdate.xml
 MVTimerUI.xml

@@ -5,7 +5,7 @@
 <GuiXml>
     <Controls>
         <TopLevelControl name="MVTimerControlUI" clampedToScreen="true" mouseEnabled="true" movable="true" hidden="false">
-			<Dimensions x="250" y="128" />
+			<Dimensions x="158" y="40" />
 			<Anchor point="TOPLEFT" relativeTo="GuiRoot" relativePoint="CENTER" offsetX="0" offsetY="0"/>
 			
 			<OnMoveStop>
@@ -14,59 +14,9 @@
 			
 			<Controls>
 				<Label name="$(parent)StatusTimerText" font="ZoFontWindowTitle" color="CFDCBD" wrapMode="ELLIPSIS" verticalAlignment="CENTER" horizontalAlignment="CENTER" text="Timer Text" >
-					<Anchor point="TOPLEFT"  relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="0" offsetY="-5"/>
+					<Anchor point="TOPLEFT"  relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="0" offsetY="0"/>
                 </Label>
 			</Controls>
-			
-			<Controls>
-				<Backdrop name="$(parent)StatusBack1" edgeColor="00000000" layer="0" level="1" centerColor="640185" alpha="0.6"  hidden="false">
-					<Dimensions x="250" y="30" />
-					<Anchor point="TOPLEFT"  relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="0" offsetY="32"/>
-					<Edge edgeSize="3" />
-				</Backdrop>
-				<StatusBar name="$(parent)StatusBar1" color="8A2BE2" alpha="1" centerColor="EB609E" barAlignment="REVERSE">
-					<Dimensions x="250" y="30" />
-					<Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="0" offsetY="32"/>
-					<Limits min="0" max="100" />
-				</StatusBar>
-                <Label name="$(parent)StatusText1" font="ZoFontGameLargeBold" color="CFDCBD" wrapMode="ELLIPSIS" verticalAlignment="CENTER" horizontalAlignment="CENTER" text="Counter1" >
-					<Anchor point="TOPLEFT"  relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="0" offsetY="32"/>
-                </Label>
-            </Controls>
-			
-			<Controls>
-				<Backdrop name="$(parent)StatusBack2" edgeColor="00000000" layer="0" level="1" centerColor="640185" alpha="0.6"  hidden="false" >
-					<Dimensions x="250" y="30" />
-					<Anchor point="TOPLEFT"  relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="0" offsetY="64"/>
-					<Edge edgeSize="3" />
-				</Backdrop>
-				<StatusBar name="$(parent)StatusBar2" color="8A2BE2" alpha="1" centerColor="EB609E" barAlignment="REVERSE">
-					<Dimensions x="250" y="30" />
-					<Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="0" offsetY="64"/>
-					<Limits min="0" max="100" />
-				</StatusBar>
-                <Label name="$(parent)StatusText2" font="ZoFontGameLargeBold" color="CFDCBD" wrapMode="ELLIPSIS" verticalAlignment="CENTER" horizontalAlignment="CENTER" text="Counter2" >                    
-					<Anchor point="TOPLEFT"  relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="0" offsetY="64"/>
-                </Label>
-            </Controls>
-			
-			<Controls>
-				<Backdrop name="$(parent)StatusBack3" edgeColor="00000000" layer="0" level="1" centerColor="640185" alpha="0.6"  hidden="false" >
-					<Dimensions x="250" y="30" />
-					<Anchor point="TOPLEFT"  relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="0" offsetY="96"/>
-					<Edge edgeSize="3" />
-				</Backdrop>
-				<StatusBar name="$(parent)StatusBar3" color="8A2BE2" alpha="1" centerColor="EB609E" barAlignment="REVERSE">
-					<Dimensions x="250" y="30" />
-					<Anchor point="TOPLEFT" relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="0" offsetY="96"/>
-					<Limits min="0" max="100" />
-				</StatusBar>
-                <Label name="$(parent)StatusText3" font="ZoFontGameLargeBold" color="CFDCBD" wrapMode="ELLIPSIS" verticalAlignment="CENTER" horizontalAlignment="CENTER" text="Counter3" >                    
-					<Anchor point="TOPLEFT"  relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="0" offsetY="96"/>
-                </Label>
-            </Controls>
-			
-
 			
         </TopLevelControl>
 	</Controls>

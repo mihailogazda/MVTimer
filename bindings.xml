@@ -1,22 +1,14 @@
 <Bindings>
   <Layer name="General">
     <Category name="|cEB609E|MVTimer Settings">
-      <Action name="ACTIVATE_POWERUP_1">
-        <Down>MVTimer.HandleKeyDown(KEY_BUFF_1)</Down>
-		<Up>MVTimer.HandleKeyUp(KEY_BUFF_1)</Up>
-      </Action>
-      <Action name="ACTIVATE_POWERUP_2">
-        <Down>MVTimer.HandleKeyDown(KEY_BUFF_2)</Down>
-		<Up>MVTimer.HandleKeyUp(KEY_BUFF_2)</Up>
-      </Action>
-	  <Action name="ACTIVATE_POWERUP_3">
-        <Down>MVTimer.HandleKeyDown(KEY_BUFF_3)</Down>
-		<Up>MVTimer.HandleKeyUp(KEY_BUFF_3)</Up>
-      </Action>
-      <Action name="ACTIVATE_POWERUP_4">
-        <Down>MVTimer.HandleKeyDown(KEY_TIMER)</Down>
-		<Up>MVTimer.HandleKeyUp(KEY_TIMER)</Up>
+      <Action name="ACTIVATE_TIMER">
+        <Down>MVTimer.HandleKeyDown(KEY_TIMER_START)</Down>
+		<Up>MVTimer.HandleKeyUp(KEY_TIMER_START)</Up>
       </Action>	  
+      <Action name="DISABLE_TIMER">
+        <Down>MVTimer.HandleKeyDown(KEY_TIMER_STOP)</Down>
+		<Up>MVTimer.HandleKeyUp(KEY_TIMER_STOP)</Up>
+      </Action>	
     </Category>
   </Layer>
 </Bindings>
