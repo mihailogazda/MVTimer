@@ -5,7 +5,7 @@
 <GuiXml>
     <Controls>
         <TopLevelControl name="MVTimerControlUI" clampedToScreen="true" mouseEnabled="true" movable="true" hidden="false">
-			<Dimensions x="158" y="40" />
+			<Dimensions x="93" y="24" />
 			<Anchor point="TOPLEFT" relativeTo="GuiRoot" relativePoint="CENTER" offsetX="0" offsetY="0"/>
 			
 			<OnMoveStop>
@@ -14,7 +14,7 @@
 			
 			<Controls>
 				<Label name="$(parent)StatusTimerText" font="ZoFontWindowTitle" color="CFDCBD" wrapMode="ELLIPSIS" verticalAlignment="CENTER" horizontalAlignment="CENTER" text="Timer Text" >
-					<Anchor point="TOPLEFT"  relativeTo="$(parent)" relativePoint="TOPLEFT" offsetX="0" offsetY="0"/>
+					<Anchor point="TOPRIGHT"  relativeTo="$(parent)" relativePoint="BOTTOMRIGHT" offsetX="0" offsetY="0"/>
                 </Label>
 			</Controls>
 			

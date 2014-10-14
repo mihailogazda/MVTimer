@@ -15,16 +15,13 @@ KEY_TIMER_START, KEY_TIMER_STOP = 1, 2
 local STATE_DISABLED, STATE_ENABLED = 1, 2
 local DISABLED_ALPHA_TEXT, ENABLED_ALPHA_TEXT = 0, 1
 
---	Timer prefix
-local TIMER_PREFIX = "Timer:  "
-
 -- Register keybindings
 ZO_CreateStringId("SI_BINDING_NAME_ACTIVATE_TIMER", "MVTimer Start timer / reset")
 ZO_CreateStringId("SI_BINDING_NAME_DISABLE_TIMER", "MVTimer Hide timer")
 
 function MVTimer:Introduce(extra)
 	--	simple bragg output
-	d("MalaVrazica Buffs Timer 1.1.0")
+	d("MalaVrazica Buffs Timer 1.2.0")
 end
 
 function MVTimer:InitializeUIMap()
@@ -40,7 +37,7 @@ function MVTimer:InitializeUIValues()
 	-- MVTimerSavedVariables
 	
 	-- Setup default UI text
-	MVTimer.ui.text:SetText(TIMER_PREFIX .. "0s")
+	MVTimer.ui.text:SetText("00:00:00")
 	MVTimer.ui.text:SetAlpha(DISABLED_ALPHA_TEXT)
 	
 	--	saved variables
@@ -95,6 +92,26 @@ function MVTimer.HandleKeyUp(key)
 	end
 end
 
+function MVTimer:GetTimeShort(s)
+	--return string.format("%.2d:%.2d:%.2d", s/(60*60), s/60%60, s%60)
+	
+	local val = ""
+	local hours = s/(60*60)
+	local minutes = s/60%60
+	local seconds = s%60
+	
+	if hours >= 1 then
+		val = string.format("%.2d:", hours)
+	end
+	if minutes >= 1 then
+		val = val .. string.format("%.2d:", minutes)
+	end	
+	
+	val = val .. string.format("%.2d", seconds)
+	
+	return val
+end
+
 function MVTimer:Update()
 	if not MVTimer.initialized then end
 	
@@ -103,6 +120,6 @@ function MVTimer:Update()
 	--	Update timer
 	if MVTimer.ui.state == STATE_ENABLED then
 		MVTimer.ui.value = MVTimer.ui.value + delta
-		MVTimer.ui.text:SetText(TIMER_PREFIX .. string.format("%0.2fs", MVTimer.ui.value))
+		MVTimer.ui.text:SetText(MVTimer:GetTimeShort(MVTimer.ui.value))
 	end
 end

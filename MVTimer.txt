@@ -2,7 +2,7 @@
 ## Buffs timer so you know when they are expiring.
 ## APIVersion: 100008
 ## Author: MihailoGazda
-## Version: 1.1.0
+## Version: 1.2.0
 ## SavedVariables: MVTimerSavedVariables
 
 MVTimer.lua
